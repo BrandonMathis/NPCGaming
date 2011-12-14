@@ -30,7 +30,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
+group :test, :development do
+  gem 'flexmock'
   gem 'turn', '0.8.2', :require => false
   gem 'rspec-rails'
 end
+gem "mocha", :group => :test
+gem "bcrypt-ruby", :require => "bcrypt"
