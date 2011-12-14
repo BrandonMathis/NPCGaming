@@ -1,4 +1,6 @@
 D3Blog::Application.routes.draw do
+  resources :posts
+
   root :to => 'pages#main'
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

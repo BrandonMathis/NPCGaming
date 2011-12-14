@@ -31,3 +31,7 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 end
+
+def create_valid_user
+  User.create(username: "User", email:"user@example.com", password:"password", password_confirmation: "password")
+end
