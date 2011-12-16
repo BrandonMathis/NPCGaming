@@ -1,11 +1,13 @@
-- title "Post"
-
 .post
   %h2
     = @post.title
   %p
     = @post.body
 
-  #administer
-    = button_to "Edit", edit_post_path(@post)
-    = button_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
+-if logged_in?
+  %fieldset#administer
+    %ul
+      %li
+        = button_to "Edit", edit_post_path(@post), :method => :get
+      %li
+        = button_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
