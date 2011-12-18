@@ -1,15 +1,14 @@
-- title "Posts"
-
-%table
-  %tr
-    %th Title
-    %th Body
+#posts
   - for post in @posts
-    %tr
-      %td= post.title
-      %td= post.body
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+    .post
+      %h3.title
+        %a{:href=>"#{edit_post_path(post)}"}= post.title
+      .author
+        = "by: #{post.user.username}"
+      .body
+        = post.body
+      .footer
+
+
 
 %p= link_to "New Post", new_post_path
