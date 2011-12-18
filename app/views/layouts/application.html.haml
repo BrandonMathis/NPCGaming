@@ -15,7 +15,7 @@
     #container
       #site-name
         %h1 
-          %a{:href=>'/'}NPC Gaming
+          %a{:href=>'/'} ~NPC Gaming~
       #main
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
