@@ -2,11 +2,12 @@
   - for post in @posts
     .post
       %h3.title
-        %a{:href=>"#{edit_post_path(post)}"}= post.title
+        %a{:href=>"#{post_path(post)}"}= post.title
       .author
-        = "by: #{post.user.username}"
+        -if post.user
+          = "by: #{post.user.username}"
       .body
-        = post.body
+        = post.html_body
       .footer
 
 

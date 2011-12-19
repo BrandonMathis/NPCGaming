@@ -10,4 +10,16 @@ describe Post do
     p = @user.posts.create
     p.author.should be_a_kind_of User
   end
+
+  describe "RedCloth" do
+    before do
+      @post = Post.create :body => "h1. This Is A Test"
+    end
+    it "should have a parsed body" do
+      @post.parsed_body.should == "<h1>This Is A Test</h1>"
+    end
+    it "should have a redcloth body" do
+      @post.body.should == "h1. This Is A Test"
+    end
+  end
 end
