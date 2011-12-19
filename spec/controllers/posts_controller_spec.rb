@@ -14,44 +14,51 @@ describe PostsController do
     response.should render_template(:show)
   end
 
-  it "new action should render new template" do
-    get :new
-    response.should render_template(:new)
-  end
+  define "User Logged In" do
+    before do
+      flexmock(@controller, :login_required => true)
+    end
 
-  it "create action should render new template when model is invalid" do
-    Post.any_instance.stubs(:valid?).returns(false)
-    post :create
-    response.should render_template(:new)
-  end
+    it "new action should render new template" do
+      get :new
+      response.should render_template(:new)
+    end
 
-  it "create action should redirect when model is valid" do
-    Post.any_instance.stubs(:valid?).returns(true)
-    post :create
-    response.should redirect_to(post_url(assigns[:post]))
-  end
+    it "create action should render new template when model is invalid" do
+      flexmock(@controller, :login_required => true)
+      Post.any_instance.stubs(:valid?).returns(false)
+      post :create
+      response.should render_template(:new)
+    end
 
-  it "edit action should render edit template" do
-    get :edit, :id => Post.first
-    response.should render_template(:edit)
-  end
+    it "create action should redirect when model is valid" do
+      Post.any_instance.stubs(:valid?).returns(true)
+      post :create
+      response.should redirect_to(post_url(assigns[:post]))
+    end
 
-  it "update action should render edit template when model is invalid" do
-    Post.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Post.first
-    response.should render_template(:edit)
-  end
+    it "edit action should render edit template" do
+      get :edit, :id => Post.first
+      response.should render_template(:edit)
+    end
 
-  it "update action should redirect when model is valid" do
-    Post.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Post.first
-    response.should redirect_to(post_url(assigns[:post]))
-  end
+    it "update action should render edit template when model is invalid" do
+      Post.any_instance.stubs(:valid?).returns(false)
+      put :update, :id => Post.first
+      response.should render_template(:edit)
+    end
 
-  it "destroy action should destroy model and redirect to index action" do
-    post = Post.first
-    delete :destroy, :id => post
-    response.should redirect_to(posts_url)
-    Post.exists?(post.id).should be_false
+    it "update action should redirect when model is valid" do
+      Post.any_instance.stubs(:valid?).returns(true)
+      put :update, :id => Post.first
+      response.should redirect_to(post_url(assigns[:post]))
+    end
+
+    it "destroy action should destroy model and redirect to index action" do
+      post = Post.first
+      delete :destroy, :id => post
+      response.should redirect_to(posts_url)
+      Post.exists?(post.id).should be_false
+    end
   end
 end
