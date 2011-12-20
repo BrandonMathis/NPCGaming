@@ -1,17 +1,22 @@
 @import formtastic
 @import formtastic_custom
 
-$container_color: #12110F
+$post_color: #12110F
+$container_color: black
 $primary_color: #EECBAD
 $text_color: #A99877
 
 #container
   width: 75%
+  max-width: 1020px
   margin: 0 auto
-  background: url("/assets/content-bg.jpg") 0 0 repeat
+  background-color: $container_color
+  border: 1px solid black
   padding: 20px 40px
   border: solid 1px black
-  margin-top: 20px
+  margin-top: 40px
+  -moz-border-radius: 5px
+  border-radius: 5px
 
 #site-name
   margin-bottom: 20px
@@ -23,10 +28,11 @@ $text_color: #A99877
 
 #posts
   .post
+    background: url('/assets/post_bg.jpg') 50% 0 no-repeat
+    background-color: $post_color
+    margin-bottom: 30px
     .wrapper
       padding: 0 20px
-    background: url('/assets/post_bg.jpg') 50% 0 no-repeat
-    margin-bottom: 30px
     .title
       padding-top: 10px
     .author
@@ -95,8 +101,13 @@ $text_color: #A99877
 /*
  * HTML
  */
+
 body
+  background-color: #616D7E
   color: $text_color
+  font:
+    family: Verdana, Helvetica, Arial
+    size: 14px
 
 fieldset, h1, h2, h3
   border: 0
@@ -108,16 +119,12 @@ textarea
 
 h1
   font-size: 35px
+
 h2
   font-size: 30px
+
 h3
   font-size: 25px
-
-body
-  background-color: $primary_color
-  font:
-    family: Verdana, Helvetica, Arial
-    size: 14px
 
 a
   color: #D96500
@@ -126,3 +133,4 @@ a
     color: white
   img
     border: none
+
