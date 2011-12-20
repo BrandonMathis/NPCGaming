@@ -1,8 +1,10 @@
 .post
-  %h2
-    = @post.title
-  %p
-    = @post.html_body
+  .wrapper
+    .title
+      %h3
+        = @post.title
+    .body
+      = @post.html_body
 
 -if logged_in?
   %fieldset#administer

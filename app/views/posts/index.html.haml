@@ -1,14 +1,15 @@
 #posts
   - for post in @posts
     .post
-      %h3.title
-        %a{:href=>"#{post_path(post)}"}= post.title
-      .author
-        -if post.user
-          = "by: #{post.user.username}"
-      .body
-        = post.html_body
-      .footer
+      .wrapper
+        %h3.title
+          %a{:href=>"#{post_path(post)}"}= post.title
+        .author
+          -if post.user
+            = "by: #{post.user.username}"
+        .body
+          = post.html_body
+        .footer
 
 - if logged_in?
   %p= link_to "New Post", new_post_path
