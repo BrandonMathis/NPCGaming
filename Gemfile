@@ -5,7 +5,7 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'nifty-generators'
 gem 'log_buddy'
 gem 'haml'
@@ -34,6 +34,7 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'flexmock'
   gem 'turn', '0.8.2', :require => false
   gem 'rspec-rails'

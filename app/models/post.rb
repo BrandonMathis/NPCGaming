@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   alias :author :user
 
   def html_body
-    parsed_body.html_safe
+    parsed_body.html_safe if parsed_body
   end
 
   private
