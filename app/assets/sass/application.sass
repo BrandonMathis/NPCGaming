@@ -1,7 +1,8 @@
 @import formtastic
+@import formtastic_custom
 
 $container_color: #12110F
-$primary_color: white
+$primary_color: #EECBAD
 $text_color: #A99877
 
 #container
@@ -22,14 +23,14 @@ $text_color: #A99877
 
 #posts
   .post
+    background: url('/assets/post_bg.jpg') 50% 0 no-repeat
     margin-bottom: 30px
+    .title
+      padding-top: 10px
     .author
       font-size: 12px
       font-style: italic
-    .body
-
     .footer
-      border-bottom: 1px dotted grey
       padding-bottom: 20px
 
 #administer
@@ -49,6 +50,7 @@ $text_color: #A99877
 #flash_notice,
 #flash_error,
 #flash_alert
+  color: black
   padding: 5px 8px
   margin: 10px 0
 
@@ -118,5 +120,7 @@ body
 a
   color: #D96500
   text-decoration: none
+  &:hover
+    color: white
   img
     border: none
