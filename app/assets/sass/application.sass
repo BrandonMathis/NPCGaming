@@ -1,11 +1,13 @@
 @import formtastic
 
-$primary_color: #4b7399
+$container_color: #12110F
+$primary_color: white
+$text_color: #A99877
 
 #container
   width: 75%
   margin: 0 auto
-  background: white
+  background: url("/assets/content-bg.jpg") 0 0 repeat
   padding: 20px 40px
   border: solid 1px black
   margin-top: 20px
@@ -13,7 +15,7 @@ $primary_color: #4b7399
 #site-name
   margin-bottom: 20px
   a
-    color: black
+    color: white
 
 #main
   padding-left: 40px
@@ -89,6 +91,9 @@ $primary_color: #4b7399
 /*
  * HTML
  */
+body
+  color: $text_color
+
 fieldset, h1, h2, h3
   border: 0
   margin: 0
@@ -111,7 +116,7 @@ body
     size: 14px
 
 a
-  color: blue
+  color: #D96500
   text-decoration: none
   img
     border: none
