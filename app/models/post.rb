@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :body, :parsed_body
+  attr_accessible :title, :body, :parsed_body, :tags
 
   belongs_to :user
 
