@@ -4,18 +4,13 @@ describe UsersController do
   fixtures :all
   render_views
 
-  it "new action should render new template" do
-    get :new
-    response.should render_template(:new)
-  end
-
   it "create action should render new template when model is invalid" do
     flexmock(User).new_instances.should_receive(:save).once.and_return(false)
     post :create
-    response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
+    flexmock(@controller, :current_user => User.new)
     flexmock(User).new_instances.should_receive(:save).once.and_return(true)
     post :create
     response.should redirect_to(root_url)
