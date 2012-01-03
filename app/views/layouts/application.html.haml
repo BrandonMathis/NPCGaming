@@ -13,8 +13,9 @@
   %body
     #container
       #site-name
-        %h1 
-          %img{:src=>'/assets/logo.png'}
+        %h1
+          %a{:href => "/"}
+            %img{:src=>'/assets/logo.png'}
       #main
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
