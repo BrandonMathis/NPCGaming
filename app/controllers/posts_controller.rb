@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @textile_ref = textile_ref
     @post = Post.new
   end
 
