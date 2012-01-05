@@ -12,6 +12,6 @@ D3Blog::Application.routes.draw do
   match 'login' => 'sessions#new', :as => :login
 
   resources :sessions
-
   resources :users
+  resources :tags
 end

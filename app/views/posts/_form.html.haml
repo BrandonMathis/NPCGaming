@@ -1,8 +1,9 @@
-//TODO Add a autocomplete tag form
 = semantic_form_for @post do |f|
   = f.inputs do
     = f.input :title
-    = f.input :body, :as => :text, :input_html => { :class => "autogrow" }
+    = f.input :body, as: :text, input_html: { :class => "autogrow" }
+    %h4 Tags
+    = f.input :tag_name, input_html: { data: {autocomplete_source: Tag.order(:name).map(&:name)} }
   = f.buttons do
     = f.commit_button
 

@@ -12,4 +12,6 @@ if Rails.env == 'development' && Post.find( :all ).empty?
   user = User.find_by_username "admin"
   body = Lorem::Base.new('paragraphs', 3).output
   2.times { user.posts.create( :title => "Test Post #{Random.rand(10)}", :body => body) }
+  Tag.create(:name => "AAAAAA")
+  Tag.create(:name => "BBBBBB")
 end

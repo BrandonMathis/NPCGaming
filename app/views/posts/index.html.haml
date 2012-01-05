@@ -1,4 +1,4 @@
-#posts
+.view-posts
   - for post in @posts
     .post
       .wrapper
@@ -7,6 +7,9 @@
         .author
           -if post.user
             = "by: #{post.user.username}"
+        .tags
+          -if post.post_tag
+            = post.post_tag
         .body
           = post.html_body
         .footer
