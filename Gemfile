@@ -38,6 +38,7 @@ group :test, :development do
   gem 'flexmock'
   gem 'turn', '0.8.2', :require => false
   gem 'rspec-rails'
+  gem 'lorem'
 end
 gem "mocha", :group => :test
 gem "bcrypt-ruby", :require => "bcrypt"
