@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.all :order => "created_at DESC"
   end
 
   def show
