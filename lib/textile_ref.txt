@@ -2,5 +2,5 @@ To type *bold*
 To type _italics_
 To -modufy- +modify+ a phrase.
 f(x, n) = log ~4~ x ^n^
-Images !http://www.w3.org/Icons/valid-html401-blue(This page is valid HTML)!
-Learn more "about textile":http://redcloth.org/textile
+Images !http://i.imgur.com/F7Sev.gif(Nyan nyan nyan)! Nyan Cat
+Learn more "about textile":http://redcloth.org/textile <- Links and links
