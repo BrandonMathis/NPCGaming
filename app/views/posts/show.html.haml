@@ -1,10 +1,13 @@
 .post
   .wrapper
-    .title
-      %h3
-        = @post.title
+    %h3.title
+      = @post.title
+    .author
+      -if @post.user
+        = "by: #{@post.user.username}"
     .body
       = @post.html_body
+    .footer
 
 -if logged_in?
   %fieldset#administer
