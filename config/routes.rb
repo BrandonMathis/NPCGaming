@@ -13,5 +13,5 @@ D3Blog::Application.routes.draw do
 
   resources :sessions
   resources :users
-  resources :tags
+  resources :categories
 end

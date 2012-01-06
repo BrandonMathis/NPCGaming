@@ -7,9 +7,10 @@
         .author
           -if post.user
             = "by: #{post.user.username}"
-        .tags
-          -if post.tag_name
-            = post.tag_name
+        .categories
+          Category: 
+          -if post.category_name
+            = post.category_name
         .body
           = post.html_body
         .footer

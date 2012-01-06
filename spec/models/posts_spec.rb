@@ -6,12 +6,10 @@ describe Post do
   end
 
   it "should have proper attributes" do
-    @user = User.create(username: "User", email:"user@example.com", password:"password", password_confirmation: "password")
-    tags = [Tag.create(:name => "shake"), Tag.create(:name => "bake")]
-    p = @user.posts.create(:tags => tags)
+    @user = User.create(username: "User", email: "user@example.com", password: "password", password_confirmation: "password")
+    p = @user.posts.create(category_name: "Shake and Bake")
     p.author.should be_a_kind_of User
-    p.tags.first.should be_a_kind_of Tag
-    p.list_tags.should == %w{shake bake}
+    p.category_name.should == "Shake and Bake"
   end
 
   describe "RedCloth" do

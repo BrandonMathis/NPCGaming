@@ -1,3 +1,3 @@
 jQuery ->
-  $('#post_tag_name').autocomplete
-    source: $('#post_tag_name').data('autocomplete-source')
+  $('#post_category_name').autocomplete
+    source: $('#post_category_name').data('autocomplete-source')
