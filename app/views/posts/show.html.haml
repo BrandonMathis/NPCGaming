@@ -8,8 +8,8 @@
           = "by: #{@post.user.username}"
       .tags
         Tags: 
-        -if @post.post_tag
-          = @post.post_tag
+        -if @post.tag_name
+          = @post.tag_name
       .body
         = @post.html_body
       .footer

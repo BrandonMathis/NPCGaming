@@ -8,8 +8,8 @@
           -if post.user
             = "by: #{post.user.username}"
         .tags
-          -if post.post_tag
-            = post.post_tag
+          -if post.tag_name
+            = post.tag_name
         .body
           = post.html_body
         .footer
