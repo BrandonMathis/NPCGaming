@@ -37,7 +37,7 @@ group :test, :development do
   gem 'sqlite3'
   gem 'flexmock'
   gem 'turn', '0.8.2', :require => false
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.8.1'
   gem 'lorem'
 end
 gem "mocha", :group => :test
