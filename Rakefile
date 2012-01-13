@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-D3Blog::Application.load_tasks
+NPCGaming::Application.load_tasks

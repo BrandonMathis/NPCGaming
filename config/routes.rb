@@ -1,4 +1,4 @@
-D3Blog::Application.routes.draw do
+NPCGaming::Application.routes.draw do
   resources :posts
 
   root :to => 'posts#index'
