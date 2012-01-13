@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :textile_help, :login_required, :except => [:index, :show]
 
   def index
     @posts = Post.all :order => "created_at DESC"
@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @textile_ref = textile_ref
     @post = Post.new
   end
 
@@ -41,5 +40,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_url, :notice => "Successfully destroyed post."
+  end
+
+  private
+
+  def textile_help
+    @textile_ref = textile_ref
   end
 end

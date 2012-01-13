@@ -14,7 +14,7 @@ describe PostsController do
     response.should render_template(:show)
   end
 
-  define "User Logged In" do
+  describe "User Logged In" do
     before do
       flexmock(@controller, :login_required => true)
     end
@@ -39,6 +39,7 @@ describe PostsController do
 
     it "edit action should render edit template" do
       get :edit, :id => Post.first
+      response.should be_successful
       response.should render_template(:edit)
     end
 
