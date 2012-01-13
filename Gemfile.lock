@@ -135,7 +135,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   bcrypt-ruby
-  coffee-rails
+  coffee-rails (>= 3.2.1)
   flexmock
   formtastic
   haml
@@ -147,7 +147,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.0.rc2)
   rspec-rails (= 2.8.1)
-  sass-rails
+  sass-rails (>= 3.2.3)
   sqlite3
   turn (= 0.8.2)
-  uglifier
+  uglifier (>= 1.0.3)
