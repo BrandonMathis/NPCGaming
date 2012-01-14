@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :textile_help, :login_required, :except => [:index, :show]
+  before_filter :textile_help, :login_required, :except => [:index, :show, :category]
 
   def index
     @posts = Post.all :order => "created_at DESC"
@@ -7,6 +7,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def category
+    @posts = Post.find_by_category(params[:category_name]).order("created_at DESC")
+    render 'index'
   end
 
   def new

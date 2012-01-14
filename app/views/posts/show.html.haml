@@ -7,9 +7,11 @@
         -if @post.user
           = "by: #{@post.user.username}"
       .categories
-        -if @post.categories_string
+        -unless @post.categories.blank?
           Category: 
-          = @post.categories_string
+          -@post.categories.each do |cat|
+            %a{:href => "/posts/category/#{cat.name}"}
+              =cat.name
       .body
         = @post.html_body
       .footer

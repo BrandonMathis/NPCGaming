@@ -14,6 +14,11 @@ describe PostsController do
     response.should render_template(:show)
   end
 
+  it "category should render index template" do
+    get :category, :category_id => 'generated'
+    response.should render_template :index
+  end
+
   describe "User Logged In" do
     before do
       flexmock(@controller, :login_required => true)

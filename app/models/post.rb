@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
 
   before_save :parse_textile_body
 
+  scope :find_by_category, lambda{ |category| joins(:categories).where('categories.name = ?', category) }
+
   alias :author :user
 
   def html_body

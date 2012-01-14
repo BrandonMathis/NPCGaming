@@ -1,6 +1,8 @@
 NPCGaming::Application.routes.draw do
   resources :posts
 
+  match 'posts/category/:category_name' => 'posts#category'
+
   root :to => 'posts#index'
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
