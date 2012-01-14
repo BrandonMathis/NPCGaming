@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :post do
-    title "Post #{Time.now.to_i}"
+    title "Post #{UUID.generate}"
     body Lorem::Base.new('paragraphs', 1).output
   end
 end

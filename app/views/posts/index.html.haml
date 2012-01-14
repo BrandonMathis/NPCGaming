@@ -19,5 +19,9 @@
           = post.html_body
         .footer
 
+%h4.post-archive
+  %a{:href => "/posts/archive"}
+    \- Post Archive -
+
 - if logged_in?
   %p= link_to "New Post", new_post_path

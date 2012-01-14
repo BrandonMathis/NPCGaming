@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :textile_help, :login_required, :except => [:index, :show, :category]
 
   def index
-    @posts = Post.all :order => "created_at DESC"
+    @posts = Post.all :order => "created_at DESC", :limit => 10
   end
 
   def show
@@ -12,6 +12,11 @@ class PostsController < ApplicationController
   def category
     @posts = Post.find_by_category(params[:category_name]).order("created_at DESC")
     render 'index'
+  end
+
+  def archive
+    @posts = Post.all(:select => "title, id, created_at", :order => "created_at DESC")
+    @post_months = @posts.group_by { |t| t.created_at.beginning_of_month }
   end
 
   def new

@@ -8,6 +8,7 @@ gem 'haml'
 gem 'formtastic'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'RedCloth'
+gem 'uuid'
 
 group :assets do
   gem 'sass-rails', '>= 3.2.3'
