@@ -7,9 +7,10 @@ describe Post do
 
   it "should have proper attributes" do
     @user = User.create(username: "User", email: "user@example.com", password: "password", password_confirmation: "password")
-    p = @user.posts.create(category_name: "Shake and Bake")
+    p = @user.posts.create(categories_string: "Red, Blue")
     p.author.should be_a_kind_of User
-    p.category_name.should == "Shake and Bake"
+    p.categories.length.should == 2
+    p.categories_string.should =~ /Red/
   end
 
   describe "RedCloth" do

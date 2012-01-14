@@ -8,9 +8,9 @@
           -if post.user
             = "by: #{post.user.username}"
         .categories
-          Category: 
-          -if post.category_name
-            = post.category_name
+          -if post.categories_string
+            Category: 
+            = post.categories_string
         .body
           = post.html_body
         .footer

@@ -2,7 +2,7 @@
   = f.inputs do
     = f.input :title
     = f.input :body, as: :text, input_html: { :class => "autogrow" }
-    = f.input :category_name, label: "Category", input_html: { data: {autocomplete_source: Category.order(:name).map(&:name)} }
+    = f.input :categories_string, label: "Categories", input_html: { data: {autocomplete_source: Category.order(:name).map(&:name)} }
   = f.buttons do
     = f.commit_button
 

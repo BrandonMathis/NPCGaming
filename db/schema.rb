@@ -11,20 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106051215) do
+ActiveRecord::Schema.define(:version => 20120114010304) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categorized_posts", :force => true do |t|
+    t.integer "post_id",     :null => false
+    t.integer "category_id", :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.string   "body"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "parsed_body"
     t.integer  "category_id"
   end
@@ -34,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20120106051215) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
