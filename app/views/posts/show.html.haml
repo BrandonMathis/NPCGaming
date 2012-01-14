@@ -9,9 +9,11 @@
       .categories
         -unless @post.categories.blank?
           Category: 
+          |
           -@post.categories.each do |cat|
             %a{:href => "/posts/category/#{cat.name}"}
               =cat.name
+            |
       .body
         = @post.html_body
       .footer
