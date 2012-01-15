@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.0.rc2'
-gem 'pg'
 gem 'nifty-generators'
 gem 'log_buddy'
 gem 'haml'
