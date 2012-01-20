@@ -12,8 +12,7 @@
             Category:
             |
             -post.categories.each do |cat|
-              %a{:href => "/posts/category/#{cat.name}"}
-                =cat.name
+              = link_to cat.name, category_path(cat)
               |
         .body
           = post.html_body

@@ -1,5 +1,4 @@
 NPCGaming::Application.routes.draw do
-  match 'posts/category/:category_name' => 'posts#category'
   match 'posts/archive' => 'posts#archive'
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

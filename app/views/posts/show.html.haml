@@ -11,8 +11,7 @@
           Category: 
           |
           -@post.categories.each do |cat|
-            %a{:href => "/posts/category/#{cat.name}"}
-              =cat.name
+            =link_to cat.name, category_path(cat)
             |
       .body
         = @post.html_body
@@ -22,6 +21,6 @@
     %fieldset#administer
       %ul
         %li
-          = button_to "Edit", edit_post_path(@post), :method => :get
+          = button_to "Edit", edit_post_path(@post), method: :get
         %li
-          = button_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
+          = button_to "Destroy", @post, confirm: 'Are you sure?', method: :delete
