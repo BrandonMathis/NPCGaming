@@ -11,11 +11,10 @@
     = yield(:head)
 
   %body
-    #menu
-      %ul
-        %li Posts
-        %li Archive
-        %li About
+    %header
+      .inside
+        %nav
+          =navigation_menu
     #container
       #site-name
         %h1
@@ -29,4 +28,3 @@
           %h1= yield(:title)
 
         = yield
-

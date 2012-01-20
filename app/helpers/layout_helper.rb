@@ -19,4 +19,24 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def navigation_menu
+    content_tag(:ul, id: 'menu')do
+      menu_items.collect do |text, url|
+        concat(content_tag(:li, link_to(text, url), class: active_tab(url)? 'active' : nil))
+      end
+    end
+  end
+
+  def active_tab(url)
+    request.fullpath =~ /^#{url}/ ||
+    (url == content_posts_path && request.fullpath == '/')
+  end
+
+  def menu_items
+    [
+      [ 'Posts', content_posts_path ],
+      [ 'Archive', post_archive_path]
+    ]
+  end
 end
