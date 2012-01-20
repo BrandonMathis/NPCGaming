@@ -8,7 +8,7 @@
 
 User.create( username: "admin", password: 'password', password_confirmation: 'password', email: 'admin@example.com')
 
-if Rails.env == 'development' && Post.find( :all ).empty?
+if Rails.env == 'development' && Content::Post.find( :all ).empty?
   user = User.find_by_username "admin"
   body = Lorem::Base.new('paragraphs', 3).output
   Category.create(name: "AAAAAA")

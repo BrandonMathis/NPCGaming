@@ -1,8 +1,8 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require Rails.root.join('spec', 'spec_helper.rb')
 
-describe Post do
+describe Content::Post do
   it 'should be valid' do
-    Post.new.should be_valid
+    Content::Post.new.should be_valid
   end
 
   it 'should have proper attributes' do
@@ -15,7 +15,7 @@ describe Post do
 
   describe 'RedCloth' do
     before do
-      @post = Post.create :body => 'h1. This Is A Test'
+      @post = Content::Post.create :body => 'h1. This Is A Test'
     end
 
     it 'should have a parsed body' do
@@ -36,7 +36,7 @@ describe Post do
     end
 
     it 'returns the lists of posts with a common category' do
-      posts = Post.find_by_category(category)
+      posts = Content::Post.find_by_category(category)
       posts.length.should == 5
     end
   end

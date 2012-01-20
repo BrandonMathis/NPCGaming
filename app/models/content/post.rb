@@ -1,4 +1,7 @@
-class Post < ActiveRecord::Base
+class Content::Post < ActiveRecord::Base
+  include Content
+  self.table_name = :content_posts
+
   attr_accessible :title, :body, :parsed_body, :categories_string
 
   belongs_to :user
@@ -11,10 +14,6 @@ class Post < ActiveRecord::Base
 
   alias :author :user
 
-  def html_body
-    parsed_body.html_safe if parsed_body
-  end
-
   def categories_string
     categories.map(&:name).join(", ")
   end
@@ -24,10 +23,5 @@ class Post < ActiveRecord::Base
     self.categories = cats.split(", ").map do |cat|
       Category.find_or_create_by_name(cat)
     end
-  end
-
-  private
-  def parse_textile_body
-    self.parsed_body = RedCloth.new(self.body).to_html if self.body
   end
 end

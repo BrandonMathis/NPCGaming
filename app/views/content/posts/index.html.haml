@@ -1,9 +1,9 @@
 .view-posts
-  - for post in @posts
+  - @posts.each do |post|
     .post
       .wrapper
         %h3.title
-          %a{:href=>"#{post_path(post)}"}= post.title
+          %a{:href=>"#{content_post_path(post)}"}= post.title
         .author
           -if post.user
             = "by: #{post.user.username}"
@@ -19,8 +19,7 @@
         .footer
 
 %h4.post-archive
-  %a{:href => "/posts/archive"}
-    \- Post Archive -
+  =link_to '- Post Archive -', post_archive_path
 
 - if logged_in?
-  %p= link_to "New Post", new_post_path
+  %p= link_to "New Post", new_content_post_path
