@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :textile_help, :login_required, :except => [:index, :show, :category]
+  before_filter :textile_help, :login_required, :except => [:archive, :index, :show, :category]
 
   def index
     @posts = Post.all :order => "created_at DESC", :limit => 10
