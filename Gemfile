@@ -9,13 +9,14 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'RedCloth'
 gem 'uuid'
 gem "friendly_id", "~> 4.0.0"
+gem 'twitter-bootstrap-rails'
 gem 'formtastic-bootstrap'
+gem 'bootstrap-sass'
 
 group :assets do
   gem 'sass-rails', '>= 3.2.3'
   gem 'coffee-rails', '>= 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
 end
 
 group :test, :development do
