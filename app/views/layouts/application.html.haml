@@ -21,9 +21,9 @@
         %h1
           %a{:href => "/"}
             %img{:src=>'/assets/logo.png'}
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
       .row-fluid
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
         .span3
           %aside
             =render 'layouts/twitter-feed'
