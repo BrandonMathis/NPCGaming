@@ -15,15 +15,17 @@
       .inside
         %nav
           =navigation_menu
-    #container
+
+    .container-fluid
       #site-name
         %h1
           %a{:href => "/"}
             %img{:src=>'/assets/logo.png'}
-      #main
+      .row-fluid
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
-      %aside.sidebar
-        =render 'layouts/twitter-feed'
-      #posts
-        = yield
+        .span3
+          %aside
+            =render 'layouts/twitter-feed'
+        .span9
+          = yield
