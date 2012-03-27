@@ -23,8 +23,7 @@
       #main
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
-
-        - if show_title?
-          %h1= yield(:title)
-
+      %aside.sidebar
+        =render 'layouts/twitter-feed'
+      #posts
         = yield
