@@ -6,14 +6,19 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png')
 @import "bootstrap-responsive"
 
 //custom scss
-@import 'formtastic'
-@import 'formtastic_custom'
-@import 'html'
+@import formtastic
+@import formtastic_custom
+@import formtastic-bootstrap
+@import html
 @import navbar
 
 $post_color: #12110F
 $container_color: black
 $primary_color: #EECBAD
+
+body
+  background: url('/assets/ricepaper.png')
+  background-color: $body_background
 
 #container
   width: 75%
@@ -35,7 +40,9 @@ $primary_color: #EECBAD
 
 .view-posts
   .post
-    background: url('/assets/post_bg.jpg') 50% 0 no-repeat
+    // background: url('/assets/post_bg.jpg') 50% 0 no-repeat
+    -moz-border-radius: 5px
+    border-radius: 5px
     background-color: $post_color
     margin-bottom: 30px
     .wrapper
