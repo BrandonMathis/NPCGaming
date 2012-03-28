@@ -13,25 +13,12 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png')
 @import navbar
 @import admin
 
-$post_color: #12110F
-$container_color: black
+$post_color: $black
 $primary_color: #EECBAD
 
 body
   background: url('/assets/ricepaper.png')
   background-color: $body_background
-
-#container
-  width: 75%
-  max-width: 980px
-  margin: 0 auto
-  background-color: $container_color
-  border: 1px solid black
-  padding: 20px 40px
-  border: solid 1px black
-  margin-top: 40px
-  -moz-border-radius: 5px
-  border-radius: 5px
 
 #site-name
   margin-top: 10px
@@ -41,7 +28,6 @@ body
 
 .view-posts
   .post
-    // background: url('/assets/post_bg.jpg') 50% 0 no-repeat
     -moz-border-radius: 5px
     border-radius: 5px
     background-color: $post_color

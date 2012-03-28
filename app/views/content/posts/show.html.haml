@@ -1,21 +1,20 @@
 .view-posts
-  .post
-    .wrapper
-      %h3.title
-        = @post.title
-      .author
-        -if @post.user
-          = "by: #{@post.user.username}"
-      .categories
-        -unless @post.categories.blank?
-          Category: 
+  %article.post
+    %h3.title
+      = @post.title
+    .author
+      -if @post.user
+        = "by: #{@post.user.username}"
+    .categories
+      -unless @post.categories.blank?
+        Category: 
+        |
+        -@post.categories.each do |cat|
+          =link_to cat.name, category_path(cat)
           |
-          -@post.categories.each do |cat|
-            =link_to cat.name, category_path(cat)
-            |
-      .body
-        = @post.html_body
-      .footer
+    .body
+      = @post.html_body
+    .footer
 
   -if logged_in?
     %fieldset#administer
