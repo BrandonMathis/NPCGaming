@@ -4,6 +4,6 @@
     = f.input :body, as: :text, input_html: { :class => "autogrow" }
     = render 'partials/textile_help'
     = link_to 'Create New Category', new_category_path
-    = f.input :categories, as: :check_boxes, collection: Category.order('name ASC').all
+    = f.input :categories_string, label: "Categories", input_html: { data: {autocomplete_source: Category.order(:name).map(&:name)} }
   = f.buttons do
     = f.button :submit, class: 'btn btn-inverse'
