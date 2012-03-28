@@ -8,6 +8,9 @@ class Content::Post < ActiveRecord::Base
   has_many :categorized_posts, :dependent => :destroy
   has_many :categories, :through => :categorized_posts
 
+  validates_presence_of :title
+  validates_presence_of :body
+
   before_save :parse_textile_body
 
   scope :find_by_category, lambda{ |category| joins(:categories).where('categories.name = ?', category) }
