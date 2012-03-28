@@ -29,3 +29,6 @@
             =render 'layouts/twitter-feed'
         .span9
           = yield
+    %footer
+      - if logged_in?
+        %p= button_to "New Post", new_content_post_path, class: 'btn btn-inverse'
