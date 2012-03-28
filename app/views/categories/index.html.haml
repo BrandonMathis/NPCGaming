@@ -1,3 +1,4 @@
--@categories.each do |category|
+-if @categories
   %ol
-    %li=category.name
+    -@categories.each do |category|
+      %li=category.name

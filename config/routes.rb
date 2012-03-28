@@ -11,9 +11,7 @@ NPCGaming::Application.routes.draw do
   end
   resources :sessions
   resources :users
-  scope 'content/posts' do
-    resources :categories
-  end
+  resources :categories
 
   root :to => 'content/posts#index'
 end
