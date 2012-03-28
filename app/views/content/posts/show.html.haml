@@ -1,25 +1,26 @@
 .view-posts
   %article.post
-    %h3.title
-      = @post.title
-    .author
-      -if @post.user
-        = "by: #{@post.user.username}"
-    .categories
-      -unless @post.categories.blank?
-        Category: 
-        |
-        -@post.categories.each do |cat|
-          =link_to cat.name, category_path(cat)
+    .wrapper
+      %h3.title
+        = @post.title
+      .author
+        -if @post.user
+          = "by: #{@post.user.username}"
+      .categories
+        -unless @post.categories.blank?
+          Category: 
           |
-    .body
-      = @post.html_body
-    .footer
+          -@post.categories.each do |cat|
+            =link_to cat.name, category_path(cat)
+            |
+      .body
+        = @post.html_body
+      .footer
 
-  -if logged_in?
-    %fieldset#administer
-      %ul
-        %li
-          = button_to "Edit", edit_content_post_path(@post), method: :get, class: 'btn btn-inverse'
-        %li
-          = button_to "Destroy", @post, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger'
+      -if logged_in?
+        %fieldset#administer
+          %ul
+            %li
+              = button_to "Edit", edit_content_post_path(@post), method: :get, class: 'btn btn-inverse'
+            %li
+              = button_to "Destroy", @post, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger'

@@ -2,7 +2,7 @@ class Content::Post < ActiveRecord::Base
   include Content
   self.table_name = :content_posts
 
-  attr_accessible :title, :body, :parsed_body, :categories_string
+  attr_accessible :title, :body, :parsed_body, :category_ids
 
   belongs_to :user
   has_many :categorized_posts, :dependent => :destroy
