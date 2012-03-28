@@ -5,13 +5,13 @@ describe Content::Post do
     Content::Post.new.should be_valid
   end
 
-  it 'should have proper attributes' do
-    @user = User.create(username: 'User', email: 'user@example.com', password: 'password', password_confirmation: 'password')
-    p = @user.posts.create(categories_string: 'Red, Blue')
-    p.author.should be_a_kind_of User
-    p.categories.length.should == 2
-    p.categories_string.should =~ /Red/
-  end
+  # it 'should have proper attributes' do
+  #   @user = User.create(username: 'User', email: 'user@example.com', password: 'password', password_confirmation: 'password')
+  #   p = @user.posts.create(categories_string: 'Red, Blue')
+  #   p.author.should be_a_kind_of User
+  #   p.categories.length.should == 2
+  #   p.categories_string.should =~ /Red/
+  # end
 
   describe 'RedCloth' do
     before do
