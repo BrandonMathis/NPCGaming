@@ -4,10 +4,10 @@
     = f.input :body, as: :text, input_html: { :class => "autogrow" }
     = f.input :categories_string, label: "Categories", input_html: { data: {autocomplete_source: Category.order(:name).map(&:name)} }
   = f.buttons do
-    = f.commit_button
+    = f.button :submit, class: 'btn btn-inverse'
 
 #textile
-  %button#show-textref formatting help
+  %button#show-textref.btn.btn-primary formatting help
   #textile-ref{:style => "display: none;"}
     %table
       %tr
