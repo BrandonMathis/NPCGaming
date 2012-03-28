@@ -2,18 +2,7 @@
   = f.inputs do
     = f.input :title
     = f.input :body, as: :text, input_html: { :class => "autogrow" }
-    #textile
-      %button#show-textref.btn.btn-primary{:type=>'button'} formatting help
-      #textile-ref{:style => "display: none;"}
-        %table
-          %tr
-            %th= "you type:"
-            %th= "you see:"
-          - @textile_ref.each do |line|
-            %tr
-              %td= line
-              %td= raw RedCloth.new(line).to_html
+    = render 'partials/textile_help'
     = f.input :categories, as: :check_boxes, collection: Category.order('name ASC').all
   = f.buttons do
     = f.button :submit, class: 'btn btn-inverse'
-
