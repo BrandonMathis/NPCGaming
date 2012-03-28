@@ -31,4 +31,4 @@
           = yield
     %footer
       - if logged_in?
-        %p= button_to "New Post", new_content_post_path, class: 'btn btn-inverse'
+        %p= button_to "New Post", new_content_post_path, method: :get, class: 'btn btn-inverse'
