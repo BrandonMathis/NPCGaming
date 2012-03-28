@@ -19,7 +19,7 @@ class Content::PostsController < ApplicationController
   end
 
   def create
-    @post = Content::Post.new(params[:post])
+    @post = Content::Post.new(params[:content_post])
     @post.user = current_user
     if @post.save
       redirect_to @post, :notice => "Successfully created post."
@@ -34,7 +34,7 @@ class Content::PostsController < ApplicationController
 
   def update
     @post = Content::Post.find(params[:id])
-    if @post.update_attributes(params[:post])
+    if @post.update_attributes(params[:content_post])
       redirect_to @post, :notice  => "Successfully updated post."
     else
       render :action => 'edit'
