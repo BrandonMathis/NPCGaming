@@ -30,5 +30,13 @@
         .span9
           = yield
     %footer
-      - if logged_in?
-        %p= button_to "New Post", new_content_post_path, method: :get, class: 'btn btn-inverse'
+      &copy; #{Time.now.year}
+      %ul{:class => 'nav nav-pills'}
+        - if logged_in?
+          %li{:class => "#{'active' if request.fullpath == new_content_post_path}"}
+            = link_to "New Post", new_content_post_path
+          %li{:class => "#{'active' if request.fullpath == logout_path}"}
+            = link_to 'Log Out', logout_path
+        -else
+          %li{:class => "#{'active' if request.fullpath == login_path}"}
+            = link_to 'Log In', login_path

@@ -33,6 +33,12 @@ module LayoutHelper
     (url == content_posts_path && request.fullpath == '/')
   end
 
+  def nav_pill(name, path)
+    haml_tag :li, :class => "#{'active' if request.fullpath == path}" do
+      haml_tag link_to name, path
+    end
+  end
+
   def menu_items
     [
       [ 'Posts', content_posts_path ],
