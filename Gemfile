@@ -26,6 +26,7 @@ group :test, :development do
   gem 'rspec-rails', '2.8.1'
   gem 'lorem'
   gem 'factory_girl_rails', '~> 1.2'
+  gem 'awesome_print'
 end
 gem "mocha", :group => :test
 gem "bcrypt-ruby", :require => "bcrypt"
