@@ -1,11 +1,13 @@
-#textile
+%aside#textile
   %button#show-textref.btn.btn-primary{:type=>'button'} formatting help
   #textile-ref{:style => "display: none;"}
     %table
       %tr
         %th= "you type:"
         %th= "you see:"
-      - @textile_ref.each do |line|
+      -textile_ref.each do |line|
         %tr
           %td= line
           %td= raw RedCloth.new(line).to_html
+      %tr
+        %td=link_to 'Full Reference', 'http://redcloth.org/textile/'

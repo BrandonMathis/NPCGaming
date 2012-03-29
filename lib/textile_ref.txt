@@ -1,3 +1,6 @@
+h1. This is a Heading 1
+h2. Heading 2 gets more specific
+bq. Some people like to use blockquote to
 To type *bold*
 To type _italics_
 To -modufy- +modify+ a phrase.
