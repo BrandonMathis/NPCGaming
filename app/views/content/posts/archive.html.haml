@@ -1,6 +1,8 @@
 .view-posts
-  -@post_months.sort.reverse.each do |month, posts|
-    %h3=h month.strftime("%B %Y")
-    %ul.posts
-      -posts.each do |post|
-        %li.posts= link_to post.title, content_post_path(post)
+  .container
+    .wrapper
+      -@post_months.sort.reverse.each do |month, posts|
+        %h3.title=h month.strftime("%B %Y")
+        %ul.posts
+          -posts.each do |post|
+            %li.posts= link_to post.title, content_post_path(post)
