@@ -42,6 +42,7 @@ module LayoutHelper
   def menu_items
     [
       [ 'Posts', content_posts_path ],
+      [ 'About Us', about_us_path],
       [ 'Archive', post_archive_path]
     ]
   end
