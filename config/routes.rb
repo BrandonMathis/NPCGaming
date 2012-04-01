@@ -5,6 +5,7 @@ NPCGaming::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
   match 'login' => 'sessions#new', :as => :login
   match 'post/archive' => 'content/posts#archive', :via => :get
+  match 'about_us' => 'content/page#about_us'
 
   namespace :content do
     resources :posts

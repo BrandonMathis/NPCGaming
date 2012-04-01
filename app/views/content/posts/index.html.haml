@@ -1,6 +1,6 @@
 .view-posts
   - @posts.each do |post|
-    .post
+    .container.post
       .wrapper
         %h3.title
           %a{:href=>"#{content_post_path(post)}"}= post.title
@@ -16,7 +16,6 @@
               |
         .body
           = post.html_body
-        .footer
 
 %h4.post-archive
   =link_to '- Post Archive -', post_archive_path
