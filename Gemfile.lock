@@ -182,6 +182,7 @@ DEPENDENCIES
   rspec-rails (= 2.8.1)
   sass-rails (>= 3.2.3)
   sqlite3
+  therubyracer
   turn (= 0.8.2)
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
