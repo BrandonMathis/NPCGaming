@@ -25,18 +25,6 @@ describe Content::Post do
     it 'should have a redcloth body' do
       @post.body.should == 'h1. This Is A Test'
     end
-
-    context 'when using youtube links' do
-      let(:link) {'http://www.youtube.com/watch?v=MqbkZkyfv_s'}
-
-      before do
-        @post = Content::Post.create(:body => link)
-      end
-
-      it 'should have a parsed body' do
-        @post.parsed_body.should == Content.youtube_embed(link)
-      end
-    end
   end
 
   describe 'find posts with categories' do
