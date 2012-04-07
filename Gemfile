@@ -12,6 +12,11 @@ gem "friendly_id", "~> 4.0.0"
 gem 'twitter-bootstrap-rails'
 gem 'formtastic-bootstrap'
 gem 'bootstrap-sass'
+gem "bcrypt-ruby", :require => "bcrypt"
+
+group :production do
+  gem 'pg'
+end
 
 group :assets do
   gem 'therubyracer'
@@ -21,6 +26,7 @@ group :assets do
 end
 
 group :test, :development do
+  gem "mocha"
   gem 'sqlite3'
   gem 'flexmock'
   gem 'turn', '0.8.2', :require => false
@@ -29,5 +35,3 @@ group :test, :development do
   gem 'factory_girl_rails', '~> 1.2'
   gem 'awesome_print'
 end
-gem "mocha", :group => :test
-gem "bcrypt-ruby", :require => "bcrypt"
