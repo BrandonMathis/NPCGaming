@@ -8,7 +8,6 @@ gem 'RedCloth'
 gem 'uuid'
 gem "friendly_id", "~> 4.0.0"
 gem 'twitter-bootstrap-rails'
-gem 'formtastic-bootstrap'
 gem 'bootstrap-sass'
 gem "bcrypt-ruby", :require => "bcrypt"
 
