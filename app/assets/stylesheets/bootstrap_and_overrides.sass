@@ -6,15 +6,16 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png')
 @import "bootstrap-responsive"
 
 //custom scss
-@import formtastic
-@import formtastic_custom
-@import formtastic-bootstrap
 @import html
 @import navbar
 @import admin
 
 $post_color: $black
 $primary_color: #EECBAD
+
+.simple_form .text textarea,
+.simple_form .string input,
+  width: 100%
 
 body
   background: url('/assets/ricepaper.png')
@@ -25,9 +26,6 @@ body
   margin-bottom: 20px
   a
     color: white
-
-#textile
-  width: 85%
 
 .container
   -moz-border-radius: 5px
@@ -89,6 +87,7 @@ ul.ui-autocomplete
   overflow: hidden
 
 #textile
+  margin-bottom: 18px
   text-align: right
   #textile-ref
     color: #603311

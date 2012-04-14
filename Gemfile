@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.0.rc2'
 gem 'haml'
-gem 'formtastic'
+gem 'simple_form'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'RedCloth'
 gem 'uuid'
