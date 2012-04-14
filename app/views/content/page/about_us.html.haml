@@ -4,8 +4,17 @@
       About Us
     .body
       %p
-        =Lorem::Base.new('paragraphs', 1).output
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in cursus augue. Etiam scelerisque elementum mi nec convallis. Duis non laoreet enim. Sed quis velit in odio cursus ornare. Nunc eleifend pellentesque dolor, nec imperdiet sapien luctus vel. Pellentesque non tellus justo. Curabitur et mi in sem faucibus pellentesque. In euismod turpis sed elit elementum fringilla viverra orci venenatis. Suspendisse vitae ipsum turpis, imperdiet adipiscing quam. Cras condimentum lorem blandit nulla rhoncus nec venenatis nunc suscipit. Donec cursus volutpat neque id scelerisque.
       %p
-        =Lorem::Base.new('paragraphs', 1).output
+        Phasellus nec libero nisi, eget vulputate massa. Suspendisse ligula erat, rhoncus ut dictum non, molestie et dui. Quisque vel metus id urna pulvinar faucibus non id magna. Aenean non erat sit amet ipsum feugiat porta ac nec dui. Nullam lectus erat, vehicula eget iaculis ut, consequat iaculis mi. Vestibulum tincidunt magna non tellus dapibus egestas. Nunc tincidunt nisi neque, sed tincidunt lorem. Proin orci dolor, lobortis consequat auctor id, bibendum ut risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse viverra ultricies nisi et accumsan. Donec lacus nisi, facilisis fermentum dapibus at, iaculis id velit.
       %p
-        =Lorem::Base.new('paragraphs', 1).output
+        Curabitur porta, ante et semper laoreet, odio diam cursus risus, nec vulputate leo elit quis risus. Duis commodo fringilla tortor aliquet eleifend. Aliquam commodo felis in leo elementum aliquet. Nullam dapibus, mauris vel suscipit porttitor, arcu nunc semper arcu, id malesuada mauris nibh quis tellus. Integer a purus vel justo bibendum iaculis. Sed vitae lobortis ipsum. Pellentesque ultrices fermentum mi non sagittis. Nulla ornare elementum metus, at pretium nibh vestibulum a. Praesent lobortis nunc at enim suscipit dignissim. In at metus leo. Nam elementum, augue eget pharetra vehicula, magna ipsum malesuada neque, et congue felis libero ut nibh. Suspendisse potenti. In hac habitasse platea dictumst.
+
+- while !@authors_list.blank?
+  .row-fluid
+    -@authors_list.shift(3).each do |author|
+      %article.container.span4
+        .wrapper
+          %p=author.username
+          %p=author.email
+          %p=author.created_at
