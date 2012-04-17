@@ -15,7 +15,6 @@
             |
       .body
         = @post.html_body
-      .footer
 
       -if logged_in?
         %fieldset#administer
@@ -24,3 +23,5 @@
               = button_to "Edit", edit_content_post_path(@post), method: :get, class: 'btn btn-inverse'
             %li
               = button_to "Destroy", @post, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger'
+      .footer
+        =render 'partials/disqus'
