@@ -1,6 +1,6 @@
 .view-posts
   - @posts.each do |post|
-    .container.post
+    .block.post
       .wrapper
         %h3.title
           %a{:href=>"#{content_post_path(post)}"}= post.title
