@@ -13,7 +13,7 @@
 - while !@authors_list.blank?
   .row-fluid
     -@authors_list.shift(3).each do |author|
-      %article.container.span4
+      %article.block.span4
         .wrapper
           %p=author.username
           %p=author.email
