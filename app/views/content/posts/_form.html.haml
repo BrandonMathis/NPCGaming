@@ -1,6 +1,8 @@
-= simple_form_for @post, html: {class: 'form-horizontal content'} do |f|
+= simple_form_for post, html: {class: 'content'} do |f|
+  = f.error_messages
   = f.input :title
   = f.input :body, as: :text, input_html: { :class => "autogrow" }
   = render 'partials/textile_help'
   = f.input :categories_string, label: "Categories", input_html: { data: {autocomplete_source: Category.order(:name).map(&:name)} }
   = f.button :submit, class: 'btn btn-inverse'
+  = button_tag 'Preview', name: :preview_button, class: 'btn btn-primary'

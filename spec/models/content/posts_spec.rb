@@ -40,4 +40,19 @@ describe Content::Post do
       posts.length.should == 5
     end
   end
+
+  describe 'state' do
+    before do
+      @post = FactoryGirl.create(:post)
+    end
+
+    it 'has initial state of pending' do
+      @post.state.should == 'pending'
+    end
+
+    it 'can be published' do
+      @post.publish
+      @post.reload.state.should == 'published'
+    end
+  end
 end

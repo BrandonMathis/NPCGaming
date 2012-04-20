@@ -1,0 +1,11 @@
+.block
+  .wrapper
+    %h1 Unpublished Posts
+    %table#unpublished_posts
+      %thead
+        %tr
+          %th Post Title
+          %th Administer
+      %tbody
+        -@post.each do |post|
+          =render post

@@ -25,4 +25,18 @@ class Content::Post < ActiveRecord::Base
       Category.find_or_create_by_name(cat)
     end
   end
+
+  def published?
+    state == 'published'
+  end
+
+  state_machine initial: :pending do
+    state :pending
+
+    state :published
+
+    event :publish do
+      transition pending: :published
+    end
+  end
 end

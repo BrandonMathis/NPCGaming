@@ -37,6 +37,8 @@
             = link_to "New Post", new_content_post_path
           %li{:class => "#{'active' if request.fullpath == logout_path}"}
             = link_to 'Log Out', logout_path
+          %li{:class => "#{'active' if request.fullpath == post_unpublished_path}"}
+            = link_to 'Unpublished', post_unpublished_path
         -else
           %li{:class => "#{'active' if request.fullpath == login_path}"}
             = link_to 'Log In', login_path

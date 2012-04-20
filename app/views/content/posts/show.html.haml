@@ -3,7 +3,7 @@
     .wrapper
       %h3.title
         = post.title
-        = '(Preview)' unless post.published
+        = '(Preview)' unless post.published?
       .author
         -if post.user
           = "by: #{post.user.username}"

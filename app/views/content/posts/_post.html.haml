@@ -1,0 +1,10 @@
+%tr.unpublished_post
+  %td.title=link_to post.title, post
+  %td.admin
+    %fieldset#administer
+      %ul
+        %li
+          = button_to "Edit", edit_content_post_path(post), method: :get, class: 'btn btn-inverse'
+        %li
+          = button_tag "Destroy", class: 'btn btn-danger destroy', href: content_post_path(post)
+

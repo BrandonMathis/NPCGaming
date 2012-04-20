@@ -28,18 +28,6 @@ describe Content::PostsController do
       response.should render_template(:new)
     end
 
-    it 'will preview the post' do
-      get :preview, id: Content::Post.first
-      response.should render_template(:show)
-    end
-
-    it "create action should render new template when model is invalid" do
-      flexmock(@controller, :login_required => true)
-      Content::Post.any_instance.stubs(:valid?).returns(false)
-      post :create
-      response.should render_template(:new)
-    end
-
     it "create action should redirect when model is valid" do
       Content::Post.any_instance.stubs(:valid?).returns(true)
       post :create
@@ -50,6 +38,24 @@ describe Content::PostsController do
       get :edit, :id => Content::Post.first
       response.should be_successful
       response.should render_template(:edit)
+    end
+  end
+
+  describe 'post state' do
+    let(:content_post_params) { { body: 'they body', title: 'the title' } }
+
+    before do
+      flexmock(@controller, :login_required => true)
+    end
+
+    it "create action sets post to published when not previewed" do
+      post :create, content_post: content_post_params
+      Content::Post.first.state.should == 'published'
+    end
+
+    it 'sets posts status to pending if preview button is used' do
+      post :create, preview_button: true, content_post: content_post_params
+      Content::Post.first.state.should == 'pending'
     end
   end
 end
