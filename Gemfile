@@ -11,6 +11,7 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'decent_exposure'
+gem 'state_machine'
 
 group :production do
   gem 'pg'
@@ -33,4 +34,5 @@ group :test, :development do
   gem 'lorem'
   gem 'factory_girl_rails', '~> 1.2'
   gem 'awesome_print'
+  gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
 end

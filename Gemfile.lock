@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/bmabey/database_cleaner.git
+  revision: 205331686d4c42c36c3fbbb4194ac6362446d93a
+  specs:
+    database_cleaner (0.7.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -136,6 +142,7 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.5)
+    state_machine (1.1.2)
     systemu (2.5.0)
     therubyracer (0.10.0)
       libv8 (~> 3.3.10)
@@ -166,6 +173,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass
   coffee-rails (>= 3.2.1)
+  database_cleaner!
   decent_exposure
   factory_girl_rails (~> 1.2)
   flexmock
@@ -181,6 +189,7 @@ DEPENDENCIES
   sass-rails (>= 3.2.3)
   simple_form
   sqlite3
+  state_machine
   therubyracer
   turn (= 0.8.2)
   twitter-bootstrap-rails

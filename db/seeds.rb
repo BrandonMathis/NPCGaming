@@ -13,5 +13,5 @@ if Rails.env == 'development' && Content::Post.find( :all ).empty?
   body = Lorem::Base.new('paragraphs', 3).output
   Category.create(name: "AAAAAA")
   Category.create(name: "BBBBBB")
-  2.times { user.posts.create( title: "Test Post #{Random.rand(10)}", body: body, categories_string: "AAAAAA") }
+  2.times { user.posts.create!( title: "Test Post #{Random.rand(10)}", body: body, categories_string: "AAAAAA") }
 end

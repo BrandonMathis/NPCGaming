@@ -1,27 +1,36 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Content::PostsController do
-  FactoryGirl.create(:post)
-  render_views
+  describe 'User Not Logged In' do
+    before do
+      @post = Content::Post.create(body: 'This is the body', title: 'this is the title')
+    end
 
-  it "index action should render index template" do
-    get :index
-    response.should render_template(:index)
-  end
+    it "index action should render index template" do
+      get :index
+      response.should render_template(:index)
+    end
 
-  it "show action should render show template" do
-    get :show, :id => Content::Post.first
-    response.should render_template(:show)
+    it "show action should render show template" do
+      get :show, :id => Content::Post.first
+      response.should render_template(:show)
+    end
   end
 
   describe "User Logged In" do
     before do
+      @post = Content::Post.create(body: 'This is the body', title: 'this is the title')
       flexmock(@controller, :login_required => true)
     end
 
     it "new action should render new template" do
       get :new
       response.should render_template(:new)
+    end
+
+    it 'will preview the post' do
+      get :preview, id: Content::Post.first
+      response.should render_template(:show)
     end
 
     it "create action should render new template when model is invalid" do
@@ -41,25 +50,6 @@ describe Content::PostsController do
       get :edit, :id => Content::Post.first
       response.should be_successful
       response.should render_template(:edit)
-    end
-
-    it "update action should render edit template when model is invalid" do
-      Content::Post.any_instance.stubs(:valid?).returns(false)
-      put :update, :id => Content::Post.first
-      response.should render_template(:edit)
-    end
-
-    it "update action should redirect when model is valid" do
-      Content::Post.any_instance.stubs(:valid?).returns(true)
-      put :update, :id => Content::Post.first
-      response.should redirect_to(content_post_url(assigns[:post]))
-    end
-
-    it "destroy action should destroy model and redirect to index action" do
-      post = Content::Post.first
-      delete :destroy, :id => post
-      response.should redirect_to(content_posts_url)
-      Content::Post.exists?(post.id).should be_false
     end
   end
 end
