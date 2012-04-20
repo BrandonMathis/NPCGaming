@@ -10,6 +10,7 @@ gem "friendly_id", "~> 4.0.0"
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'decent_exposure'
 
 group :production do
   gem 'pg'

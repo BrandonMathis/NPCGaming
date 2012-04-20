@@ -2,26 +2,27 @@
   %article.post.block
     .wrapper
       %h3.title
-        = @post.title
+        = post.title
+        = '(Preview)' unless post.published
       .author
-        -if @post.user
-          = "by: #{@post.user.username}"
+        -if post.user
+          = "by: #{post.user.username}"
       .categories
-        -unless @post.categories.blank?
+        -unless post.categories.blank?
           Category: 
           |
-          -@post.categories.each do |cat|
+          -post.categories.each do |cat|
             =link_to cat.name, category_path(cat)
             |
       .body
-        = @post.html_body
+        = post.html_body
 
       -if logged_in?
         %fieldset#administer
           %ul
             %li
-              = button_to "Edit", edit_content_post_path(@post), method: :get, class: 'btn btn-inverse'
+              = button_to "Edit", edit_content_post_path(post), method: :get, class: 'btn btn-inverse'
             %li
-              = button_to "Destroy", @post, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger'
+              = button_to "Destroy", post, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger'
       .footer
         =render 'partials/disqus'

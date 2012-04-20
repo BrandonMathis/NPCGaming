@@ -1,35 +1,38 @@
 class Content::PostsController < ApplicationController
   before_filter :textile_help, :login_required, :except => [:archive, :index, :show]
 
-  def index
-    @posts = Content::Post.all :order => "created_at DESC", :limit => 10
+  expose(:post) do
+    if params[:id]
+      Content::Post.find(params[:id])
+    else
+      Content::Post.new
+    end
   end
 
-  def show
-    @post = Content::Post.find(params[:id])
-  end
+  expose(:posts) { Content::Post.all order: "created_at DESC", limit: 10 }
 
   def archive
     @posts = Content::Post.all(:select => "title, id, created_at", :order => "created_at DESC")
     @post_months = @posts.group_by { |t| t.created_at.beginning_of_month }
   end
 
-  def new
-    @post = Content::Post.new
+  def preview
+    render :show
   end
 
   def create
     @post = Content::Post.new(params[:content_post])
     @post.user = current_user
     if @post.save
-      redirect_to @post, :notice => "Successfully created post."
+      if params[:preview_button]
+        render :show
+      else
+        @post.update_attributes(published: true)
+        redirect_to @post, :notice => "Successfully created post."
+      end
     else
       render :action => 'new'
     end
-  end
-
-  def edit
-    @post = Content::Post.find(params[:id])
   end
 
   def update
@@ -48,7 +51,6 @@ class Content::PostsController < ApplicationController
   end
 
   private
-
   def textile_help
     @textile_ref = textile_ref
   end
