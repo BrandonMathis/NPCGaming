@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'decent_exposure'
 gem 'state_machine'
+gem 'quiet_assets', group: :development
 
 group :production do
   gem 'pg'
@@ -36,3 +37,5 @@ group :test, :development do
   gem 'awesome_print'
   gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
 end
+
+gem 'quiet_assets', group: :development
