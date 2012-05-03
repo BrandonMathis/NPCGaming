@@ -19,7 +19,7 @@ class Content::PostsController < ApplicationController
   def create
     @post = Content::Post.new(params[:content_post])
     @post.user = current_user
-    if @post.save!
+    if @post.save
       if params[:preview_button]
         redirect_to @post, :notice => "Previewing the post"
       else
